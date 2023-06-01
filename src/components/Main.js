@@ -5,10 +5,11 @@ import axios from 'axios'
 
 const Main = () => {
     const [search, setSearch] = useState('');
+    const [data, setData] = useState([])
     const searchBook = (e) => {
         if(e.key === 'Enter') {
-            axios.get('https://www.googleapis.com/books/v1/volumes?q='+search+'&key=AIzaSyAtl6Pxq-ulSyusBAvFkcEdlPAfcfdrW_s')
-            .then(res => console.log(res.data.items))
+            axios.get('https://www.googleapis.com/books/v1/volumes?q='+search+'&key=AIzaSyAtl6Pxq-ulSyusBAvFkcEdlPAfcfdrW_s' + '&maxResults=40')
+            .then(res => setData(res.data.items))
             .catch(err => console.log(err))
         }
     }
@@ -36,14 +37,7 @@ const Main = () => {
         </div>
 
         <div className='container'>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
+           {  <Card book={data}/> }
         </div>
         </>
     )
