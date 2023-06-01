@@ -44,7 +44,7 @@ html{
 .row2 {
     position: absolute;
     top: 10px;
-    right: 150px;
+    right: 10%;
     text-align: center;
 }
 
@@ -55,7 +55,7 @@ html{
 }
 
 .row2 img {
-    margin-top: 30px;
+    margin-top: 2rem;
     width: 250px;
 }
 
@@ -215,4 +215,21 @@ html{
     margin-top: 2rem;
     text-align: justify;
     font-size: 13px;
+}
+
+@media (max-width:1000px) {
+    .row2 {
+        position: absolute;
+        top: 10px;
+        right: 2%;
+        text-align: center;
+    }
+
+    .search input {
+        width: 270px;
+    }
+
+    .row1 h1{
+        font-size: 2rem;
+    }
 }

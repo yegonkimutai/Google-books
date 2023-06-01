@@ -8,7 +8,7 @@ const Main = () => {
     const [data, setData] = useState([])
     const searchBook = (e) => {
         if(e.key === 'Enter') {
-            axios.get('https://www.googleapis.com/books/v1/volumes?q=react&key=AIzaSyAtl6Pxq-ulSyusBAvFkcEdlPAfcfdrW_s' + '&maxResults=40')
+            axios.get('https://www.googleapis.com/books/v1/volumes?q='+search+'&key=AIzaSyAtl6Pxq-ulSyusBAvFkcEdlPAfcfdrW_s' + '&maxResults=40')
             .then(res => setData(res.data.items))
             .catch(err => console.log(err))
         }
@@ -25,7 +25,7 @@ const Main = () => {
                 <div className='search'>
                     <input
                      type='text'
-                    placeholder='Enter book name' 
+                    placeholder='Enter keyword eg:react,science e.t.c...' 
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     onKeyDown={searchBook}
